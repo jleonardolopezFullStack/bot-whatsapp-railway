@@ -1,5 +1,6 @@
 const qrcode = require("qrcode-terminal");
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const client = new Client({
@@ -31,8 +32,8 @@ const main = async () => {
   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: "danielarairanswap@hotmail.com",
-      pass: "N@la27011756",
+      user: process.env.EMAIL,
+      pass: process.env.PASS,
     },
     port: 465,
     host: "smtp.hotmail.com",
@@ -40,8 +41,8 @@ const main = async () => {
 
   let info = transporter.sendMail(
     {
-      from: "danielarairanswap@hotmail.com", // sender address
-      to: "danielarairanswap@hotmail.com", // list of receivers
+      from: process.env.EMAIL, // sender address
+      to: process.env.EMAIL, // list of receivers
       subject: "Hello ✔", // Subject line
       text: "Hello world?", // plain text body
       html: "<b>Hello world?</b>", // html body
