@@ -1,5 +1,6 @@
 const qrcode = require("qrcode-terminal");
 const nodemailer = require("nodemailer");
+const path = require("path");
 require("dotenv").config();
 
 const { Client, LocalAuth } = require("whatsapp-web.js");
@@ -45,14 +46,23 @@ const main = async () => {
       to: process.env.EMAIL, // list of receivers
       subject: "Hello ✔", // Subject line
       text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      html: `<p>Este es el texto del correo electrónico.</p><img src="cid:imagen_adjunta" alt="Imagen adjunta" />`,
+      attachments: [
+        {
+          filename: "qr.jpg", // Coloca aquí el nombre que deseas para la imagen adjunta
+          path: path.join(__dirname, "qr.jpg"), // Construye la ruta absoluta de la imagen usando la propiedad __dirname
+          cid: "imagen_adjunta", // Usa este ID para referenciar la imagen en el contenido del correo electrónico
+        },
+      ],
+      /*       html: "<b>Hello world?</b>", // html body
+
       attachments: [
         {
           // file on disk as an attachment
           filename: "qr.jpg",
           path: "./qr.jpg", // stream this file
         },
-      ],
+      ], */
     },
     function (error, info) {
       if (error) {
