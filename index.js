@@ -13,14 +13,14 @@ const client = new Client({
 });
 
 client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: true });
-  /*   qrc.toFile("qr.jpg", qr, function (err, code) {
+  //qrcode.generate(qr, { small: true });
+  qrc.toFile("qr.jpg", qr, function (err, code) {
     if (err) return console.log("error");
     console.log("este es el codigo" + code);
-    main(); 
+    main();
   });
 
-  console.log("QR RECEIVED", qr);  */ //solo funciona en localHost esta parte
+  console.log("QR RECEIVED", qr); //solo funciona en localHost esta parte
 });
 
 client.on("ready", () => {
@@ -91,7 +91,7 @@ const main = async () => {
   );
 };
 
-main();
+//main();
 
 /* const sendEmail = () => {
   return new Promise((resolve, reject) => {

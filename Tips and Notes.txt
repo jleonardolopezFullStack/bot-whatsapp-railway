@@ -1,0 +1,7 @@
+Estos videos me ayudaron a lograr realizar la parte de envio de emails, creacion del bot y deployd
+
+- https://www.youtube.com/watch?v=QrHn2aun7ig    ... creacion de email
+- https://www.youtube.com/watch?v=0Hg2ZPVuCfc&t=923s    ... varias formas de crear un qr code para Whatsapp
+- https://www.youtube.com/watch?v=8I-3_6vV-OA&t=994s    .... explicacion de como crear una api para mandar emails
+- Fue necesario crear una cuenta en https://mailtrap.io para poder enviar los correos en una api. Esto mas el video de arribe 
+  fue lo que me dio solucion para poder ver que podia mandar los correos.
