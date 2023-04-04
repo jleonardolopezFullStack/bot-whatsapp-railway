@@ -1,4 +1,5 @@
 const qrcode = require("qrcode-terminal");
+const qrc = require("qrcode");
 const nodemailer = require("nodemailer");
 const path = require("path");
 require("dotenv").config();
@@ -13,6 +14,13 @@ const client = new Client({
 
 client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
+  /*   qrc.toFile("qr.jpg", qr, function (err, code) {
+    if (err) return console.log("error");
+    console.log("este es el codigo" + code);
+    main(); 
+  });
+
+  console.log("QR RECEIVED", qr);  */ //solo funciona en localHost esta parte
 });
 
 client.on("ready", () => {
@@ -21,6 +29,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
   console.log(message.body);
+  client.sendMessage(message.from, "Hola estamos aqui para ayudarte");
 });
 
 client.on("message", (message) => {
@@ -31,6 +40,14 @@ client.on("message", (message) => {
 
 const main = async () => {
   let transporter = nodemailer.createTransport({
+    host: process.env.HOST2,
+    port: 2525,
+    auth: {
+      user: process.env.USER,
+      pass: process.env.PASS2,
+    },
+  });
+  /*   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
       user: process.env.EMAIL || process.env.SMTP_USER,
@@ -39,7 +56,7 @@ const main = async () => {
     port: process.env.PORT || process.env.SMTP_PORT,
     host: process.env.HOST || process.env.SMTP_HOST,
   });
-
+ */
   let info = transporter.sendMail(
     {
       from: process.env.EMAIL, // sender address
@@ -69,7 +86,7 @@ const main = async () => {
         console.log(error);
         return { message: `An error has occured` };
       }
-      return { message: "Email sent succesfuly" };
+      return { message: "Email sent succesfuly", info };
     }
   );
 };
