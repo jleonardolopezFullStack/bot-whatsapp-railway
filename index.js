@@ -33,11 +33,11 @@ const main = async () => {
   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASS,
+      user: process.env.EMAIL || process.env.SMTP_USER,
+      pass: process.env.PASS || process.env.SMTP_PASSWORD,
     },
-    port: 465,
-    host: "smtp.hotmail.com",
+    port: process.env.PORT || process.env.SMTP_PORT,
+    host: process.env.HOST || process.env.SMTP_HOST,
   });
 
   let info = transporter.sendMail(

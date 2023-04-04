@@ -1,2 +1,3 @@
-2023/04/04-07:47:49.260 2de4 Creating DB C:\Users\jleon\Documents\CineApp\bot\.wwebjs_auth\session\Default\Session Storage since it was missing.
-2023/04/04-07:47:49.270 2de4 Reusing MANIFEST C:\Users\jleon\Documents\CineApp\bot\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2023/04/04-08:46:27.015 6300 Reusing MANIFEST C:\Users\jleon\Documents\CineApp\bot\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2023/04/04-08:46:27.016 6300 Recovering log #3
+2023/04/04-08:46:27.016 6300 Reusing old log C:\Users\jleon\Documents\CineApp\bot\.wwebjs_auth\session\Default\Session Storage/000003.log 

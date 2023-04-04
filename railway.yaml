@@ -1,0 +1,11 @@
+name: nombre_de_tu_aplicacion
+env: railway.env
+build:
+  env:
+    NODE_ENV: production
+  steps:
+    - run: npm install
+  port: $PORT
+  language: nodejs
+  run:
+    web: node app.js
